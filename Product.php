@@ -1,15 +1,18 @@
 <?php
-namespace laba1{
-    class Product{
-        public function __construct(public int $id, 
-        public string $name, 
-        public float $price, 
-        public string $description){
-            $this->id = $id;
+namespace laba2{
+    abstract class Product{
+        public string $name;
+        public string $desc;
+        protected float $price;
+        protected float $income; //для подсчёта дохода, но из задания не понял 
+
+        public function __construct($name, $desc, $price){
             $this->name = $name;
+            $this->desc = $desc;
             $this->price = $price;
-            $this->description = $description;
         }
+
+        abstract public function getFinalPrice(); 
     }
 }
 ?>
