@@ -1,7 +1,10 @@
 <?php
 namespace laba1{
     class Cart{
-        public function __construct(public int $id,public Product ...$products){
+        public int $id;
+        public array $products;
+    
+        public function __construct(int $id, Product ...$products) {
             $this->id = $id;
             $this->products = $products;
         }
