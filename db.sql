@@ -9,7 +9,8 @@ CREATE TABLE posts (
     uuid UUID PRIMARY KEY,
     author_uuid UUID,
     title TEXT NOT NULL,
-    text TEXT NOT NULL
+    text TEXT NOT NULL,
+    FOREIGN KEY(author_uuid) REFERENCES users(uuid)
 );
 
 CREATE TABLE comments (
@@ -17,5 +18,6 @@ CREATE TABLE comments (
     post_uuid UUID,
     author_uuid UUID,
     text TEXT NOT NULL,
+    FOREIGN KEY(author_uuid) REFERENCES users(uuid)
     FOREIGN KEY(post_uuid) REFERENCES posts(uuid)
 );
