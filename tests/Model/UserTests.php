@@ -1,10 +1,10 @@
 <?php
 
-namespace UnitTests\Model;
+namespace UnitTests\my\Model;
 
-use Model\Name;
-use Model\User;
-use Model\UUID;
+use my\Model\Name;
+use my\Model\User;
+use my\Model\UUID;
 use PHPUnit\Framework\TestCase;
 
 class UserTests extends TestCase

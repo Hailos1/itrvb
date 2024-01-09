@@ -1,9 +1,9 @@
 <?php
 
-namespace Repositories;
+namespace my\Repositories;
 
-use Model\User;
-use Model\UUID;
+use my\Model\User;
+use my\Model\UUID;
 
 interface UserRepositoryInterface {
     public function save(User $user): void;

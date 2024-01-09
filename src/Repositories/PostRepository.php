@@ -1,10 +1,10 @@
 <?php
-namespace Repositories;
+namespace my\Repositories;
 
-use Model\Post;
-use Model\UUID;
-use Exceptions\PostIncorrectDataException;
-use Exceptions\PostNotFoundException;
+use my\Model\Post;
+use my\Model\UUID;
+use my\Exceptions\PostIncorrectDataException;
+use my\Exceptions\PostNotFoundException;
 use PDO;
 use PDOException;
 use PostsRepositoryInterface;

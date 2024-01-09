@@ -1,11 +1,11 @@
 <?php
 
-namespace UnitTests\Repositories;
+namespace UnitTests\my\Repositories;
 
-use Exceptions\CommentNotFoundException;
-use Model\Comment;
-use Model\UUID;
-use Repositories\CommentRepository;
+use my\Exceptions\CommentNotFoundException;
+use my\Model\Comment;
+use my\Model\UUID;
+use my\Repositories\CommentRepository;
 use PDO;
 use PDOStatement;
 use PHPUnit\Framework\TestCase;

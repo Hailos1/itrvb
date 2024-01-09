@@ -1,9 +1,9 @@
 <?php
 
-namespace UnitTests\Model;
+namespace UnitTests\my\Model;
 
-use Model\Post;
-use Model\UUID;
+use my\Model\Post;
+use my\Model\UUID;
 use PHPUnit\Framework\TestCase;
 
 class ArticleTests extends TestCase

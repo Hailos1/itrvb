@@ -1,12 +1,12 @@
 <?php
 
-namespace UnitTests\Repositories;
+namespace UnitTests\my\Repositories;
 
-use Exceptions\UserNotFoundException;
-use Model\Name;
-use Model\User;
-use Model\UUID;
-use Repositories\UserRepository;
+use my\Exceptions\UserNotFoundException;
+use my\Model\Name;
+use my\Model\User;
+use my\Model\UUID;
+use my\Repositories\UserRepository;
 use PDO;
 use PDOStatement;
 use PHPUnit\Framework\TestCase;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Commands;
+namespace my\Commands;
 
-use Exceptions\ArgumentsException;
+use my\Exceptions\ArgumentsException;
 
 class Arguments {
     public function __construct(

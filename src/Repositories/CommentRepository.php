@@ -1,11 +1,11 @@
 <?php
-namespace Repositories;
+namespace my\Repositories;
 
 use CommentsRepositoryInterface;
-use Model\Comment;
-use Model\UUID;
-use Exceptions\CommentIncorrectDataException;
-use Exceptions\CommentNotFoundException;
+use my\Model\Comment;
+use my\Model\UUID;
+use my\Exceptions\CommentIncorrectDataException;
+use my\Exceptions\CommentNotFoundException;
 use PDO;
 use PDOException;
 

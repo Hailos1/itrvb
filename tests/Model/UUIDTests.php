@@ -1,9 +1,9 @@
 <?php
 
-namespace UnitTests\Model;
+namespace UnitTests\my\Model;
 
-use Exceptions\InvalidArgumentException;
-use Model\UUID;
+use my\Exceptions\InvalidArgumentException;
+use my\Model\UUID;
 use PHPUnit\Framework\TestCase;
 
 class UUIDTests extends TestCase

@@ -1,13 +1,13 @@
 <?php
 
-namespace Commands;
+namespace my\Commands;
 
-use Exceptions\CommandException;
-use Exceptions\UserNotFoundException;
-use Repositories\UserRepositoryInterface;
-use Model\UUID;
-use Model\User;
-use Model\Name;
+use my\Exceptions\CommandException;
+use my\Exceptions\UserNotFoundException;
+use my\Repositories\UserRepositoryInterface;
+use my\Model\UUID;
+use my\Model\User;
+use my\Model\Name;
 
 class CreateUserCommand {
     public function __construct(

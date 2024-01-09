@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace my\Model;
 
 class User {
     public UUID $uuid;
