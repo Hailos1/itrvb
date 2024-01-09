@@ -1,9 +1,10 @@
 <?php
 
-use laba3\Comment;
+use Model\Comment;
+use Model\UUID;
 
 interface CommentsRepositoryInterface {
-    public function get(string $uuid): Comment;
+    public function get(UUID $uuid): Comment;
     public function save(Comment $comment): void;
 }
 

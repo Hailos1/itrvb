@@ -1,9 +1,10 @@
 <?php
 
-use laba3\Post;
+use Model\Post;
+use Model\UUID;
 
 interface PostsRepositoryInterface {
-    public function get(string $uuid): Post;
+    public function get(UUID $uuid): Post;
     public function save(Post $post): void;
 }
 ?>
