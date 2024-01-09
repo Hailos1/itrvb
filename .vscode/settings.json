@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "blog",
+            "database": "${workspaceFolder:itrvb}/db.sqlite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

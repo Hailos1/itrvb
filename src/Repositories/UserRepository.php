@@ -1,6 +1,6 @@
 <?php
 
-namespace my\Repositories;
+namespace Repositories;
 
 use Model\Name;
 use Model\User;

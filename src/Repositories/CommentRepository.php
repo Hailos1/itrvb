@@ -1,5 +1,5 @@
 <?php
-namespace my\Repositories;
+namespace Repositories;
 
 use CommentsRepositoryInterface;
 use Model\Comment;
