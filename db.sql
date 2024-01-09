@@ -5,7 +5,7 @@ CREATE TABLE users (
     last_name TEXT NOT NULL
 );
 
-CREATE TABLE articles (
+CREATE TABLE posts (
     uuid UUID PRIMARY KEY,
     author_uuid UUID,
     title TEXT NOT NULL,
@@ -14,8 +14,8 @@ CREATE TABLE articles (
 
 CREATE TABLE comments (
     uuid UUID PRIMARY KEY,
-    article_uuid UUID,
+    post_uuid UUID,
     author_uuid UUID,
     text TEXT NOT NULL,
-    FOREIGN KEY(article_uuid) REFERENCES articles(uuid)
+    FOREIGN KEY(post_uuid) REFERENCES posts(uuid)
 );
