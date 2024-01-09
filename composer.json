@@ -12,6 +12,11 @@
         }
     ],
     "require": {
-        "fakerphp/faker": "^1.00"
+        "fakerphp/faker": "^1.23",
+        "ramsey/uuid": "^4.7",
+        "ext-pdo": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
     }
 }
