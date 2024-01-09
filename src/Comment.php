@@ -3,9 +3,9 @@
 namespace laba3;
 
 class Comment {
-    public $id;
-    public $author_id;
-    public $article_id;
+    public $uuid;
+    public $post_uuid;
+    public $author_uuid;
     public $text;
 }
 
