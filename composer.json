@@ -1,0 +1,17 @@
+{
+    "name": "hailos1/laba3",
+    "autoload": {
+        "psr-4": {
+            "my\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hailos1",
+            "email": "kabanow.g@gmail.com"
+        }
+    ],
+    "require": {
+        "fakerphp/faker": "^1.00"
+    }
+}
