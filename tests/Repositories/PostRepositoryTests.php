@@ -1,11 +1,11 @@
 <?php
 
-namespace UnitTests\Repositories;
+namespace UnitTests\my\Repositories;
 
-use Exceptions\PostNotFoundException;
-use Model\Post;
-use Model\UUID;
-use Repositories\PostRepository;
+use my\Exceptions\PostNotFoundException;
+use my\Model\Post;
+use my\Model\UUID;
+use my\Repositories\PostRepository;
 use PDO;
 use PDOStatement;
 use PHPUnit\Framework\TestCase;

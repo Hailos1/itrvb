@@ -1,10 +1,10 @@
 <?php
 
-namespace UnitTests\Commands;
+namespace UnitTests\my\Commands;
 
-use Exceptions\ArgumentsException;
+use my\Exceptions\ArgumentsException;
 use PHPUnit\Framework\TestCase;
-use Commands\Arguments;
+use my\Commands\Arguments;
 
 class ArgumentsTests extends TestCase
 {

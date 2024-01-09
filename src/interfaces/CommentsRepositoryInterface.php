@@ -1,7 +1,7 @@
 <?php
 
-use Model\Comment;
-use Model\UUID;
+use my\Model\Comment;
+use my\Model\UUID;
 
 interface CommentsRepositoryInterface {
     public function get(UUID $uuid): Comment;

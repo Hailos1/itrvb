@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'my\\' => array($baseDir . '/src'),
+    'http\\' => array($baseDir . '/http'),
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Ramsey\\Collection\\' => array($vendorDir . '/ramsey/collection/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),

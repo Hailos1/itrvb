@@ -1,15 +1,15 @@
 <?php
 
-namespace UnitTests\Commands;
+namespace UnitTests\my\Commands;
 
-use Commands\Arguments;
-use Commands\CreateUserCommand;
-use Exceptions\CommandException;
-use Exceptions\UserNotFoundException;
-use Model\Name;
-use Model\User;
-use Model\UUID;
-use Repositories\UserRepositoryInterface;
+use my\Commands\Arguments;
+use my\Commands\CreateUserCommand;
+use my\Exceptions\CommandException;
+use my\Exceptions\UserNotFoundException;
+use my\Model\Name;
+use my\Model\User;
+use my\Model\UUID;
+use my\Repositories\UserRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 
 class CreateUserCommandTests extends TestCase

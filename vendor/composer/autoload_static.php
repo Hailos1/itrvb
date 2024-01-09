@@ -18,6 +18,10 @@ class ComposerStaticInit70eab00c28dc244e38698bc025fb146b
         array (
             'my\\' => 3,
         ),
+        'h' => 
+        array (
+            'http\\' => 5,
+        ),
         'R' => 
         array (
             'Ramsey\\Uuid\\' => 12,
@@ -46,6 +50,10 @@ class ComposerStaticInit70eab00c28dc244e38698bc025fb146b
         'my\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'http\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/http',
         ),
         'Ramsey\\Uuid\\' => 
         array (

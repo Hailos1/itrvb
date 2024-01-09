@@ -1,5 +1,5 @@
 <?php
-namespace Model;
+namespace my\Model;
 
 use InvalidArgumentException;
 use Ramsey\Uuid\Uuid as RamseyUuid;

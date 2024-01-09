@@ -1,15 +1,15 @@
 <?php
 
-namespace Repositories;
+namespace my\Repositories;
 
-use Model\Name;
-use Model\User;
-use Model\UUID;
-use Exceptions\UserIncorrectDataException;
-use Exceptions\UserNotFoundException;
+use my\Model\Name;
+use my\Model\User;
+use my\Model\UUID;
+use my\Exceptions\UserIncorrectDataException;
+use my\Exceptions\UserNotFoundException;
 use PDO;
 use PDOException;
-use Repositories\UserRepositoryInterface;
+use my\Repositories\UserRepositoryInterface;
 
 class UserRepository implements UserRepositoryInterface {
     public function __construct(

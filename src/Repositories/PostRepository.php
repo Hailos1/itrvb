@@ -1,10 +1,10 @@
 <?php
-namespace Repositories;
+namespace my\Repositories;
 
-use Model\Post;
-use Model\UUID;
-use Exceptions\PostIncorrectDataException;
-use Exceptions\PostNotFoundException;
+use my\Model\Post;
+use my\Model\UUID;
+use my\Exceptions\PostIncorrectDataException;
+use my\Exceptions\PostNotFoundException;
 use PDO;
 use PDOException;
 use PostsRepositoryInterface;
@@ -46,6 +46,16 @@ class PostRepository implements PostsRepositoryInterface {
             ]);
         } catch (PDOException $e) {
             throw new PostIncorrectDataException("Ошибка при сохранении статьи: " . $e->getMessage());
+        }
+    }
+
+    public function delete(string $uuid): void
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM posts WHERE uuid = :uuid");
+        $stmt->execute([':uuid' => $uuid]);
+
+        if ($stmt->rowCount() === 0) {
+            throw new PostNotFoundException("Post with UUID $uuid not found");
         }
     }
 }

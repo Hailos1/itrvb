@@ -1,7 +1,7 @@
 <?php
 
-use Model\Post;
-use Model\UUID;
+use my\Model\Post;
+use my\Model\UUID;
 
 interface PostsRepositoryInterface {
     public function get(UUID $uuid): Post;

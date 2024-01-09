@@ -1,6 +1,6 @@
 <?php
 
-namespace Exceptions;
+namespace my\Exceptions;
 
 class UserNotFoundException extends \Exception {
 

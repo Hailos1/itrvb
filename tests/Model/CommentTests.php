@@ -1,9 +1,9 @@
 <?php
 
-namespace UnitTests\Model;
+namespace UnitTests\my\Model;
 
-use Model\Comment;
-use Model\UUID;
+use my\Model\Comment;
+use my\Model\UUID;
 use PHPUnit\Framework\TestCase;
 
 class CommentTests extends TestCase

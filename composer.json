@@ -2,7 +2,8 @@
     "name": "hailos1/laba3",
     "autoload": {
         "psr-4": {
-            "my\\": "src/"
+            "my\\": "src/",
+            "http\\": "http/"
         }
     },
     "authors": [

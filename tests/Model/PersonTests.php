@@ -1,9 +1,9 @@
 <?php
 
-namespace UnitTests\Model;
+namespace UnitTests\my\Model;
 
-use Model\Name;
-use Model\Person;
+use my\Model\Name;
+use my\Model\Person;
 use PHPUnit\Framework\TestCase;
 
 class PersonTests extends TestCase

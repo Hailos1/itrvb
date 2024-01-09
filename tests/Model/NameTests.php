@@ -1,8 +1,8 @@
 <?php
 
-namespace UnitTests\Model;
+namespace UnitTests\my\Model;
 
-use Model\Name;
+use my\Model\Name;
 use PHPUnit\Framework\TestCase;
 
 class NameTests extends TestCase
