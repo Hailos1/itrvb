@@ -1,7 +1,8 @@
 <?php
 
-namespace UnitTests\my\Commands;
+namespace tests\Commands;
 
+use PHPUnit\Framework\TestCase;
 use my\Commands\Arguments;
 use my\Commands\CreateUserCommand;
 use my\Exceptions\CommandException;
@@ -10,7 +11,7 @@ use my\Model\Name;
 use my\Model\User;
 use my\Model\UUID;
 use my\Repositories\UserRepositoryInterface;
-use PHPUnit\Framework\TestCase;
+use tests\DummyLogger;
 
 class CreateUserCommandTests extends TestCase
 {
@@ -20,7 +21,7 @@ class CreateUserCommandTests extends TestCase
     protected function setUp(): void
     {
         $this->userRepository = $this->createMock(UserRepositoryInterface::class);
-        $this->createUserCommand = new CreateUserCommand($this->userRepository);
+        $this->createUserCommand = new CreateUserCommand($this->userRepository, new DummyLogger());
     }
 
     public function testHandleCreatesUserWhenNotExists(): void

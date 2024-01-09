@@ -10,12 +10,12 @@ use http\SuccessfullResponse;
 use InvalidArgumentException;
 use my\Model\Post;
 use my\Model\UUID;
-use my\Repositories\PostRepository;
+use my\Repositories\PostsRepositoryInterface;
 
 class CreatePost implements ActionInterface
 {
     public function __construct(
-        private PostRepository $postRepository
+        private PostsRepositoryInterface $postRepository
     ) { }
     public function handle(Request $request): Response
     {

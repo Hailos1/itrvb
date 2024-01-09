@@ -9,12 +9,12 @@ use http\Response;
 use http\SuccessfullResponse;
 use my\Model\CommentLike;
 use my\Model\UUID;
-use my\Repositories\CommentLikeRepository;
+use my\Repositories\CommentLikeRepositoryInterface;
 
 class CreateCommentLike implements ActionInterface
 {
     public function __construct(
-      private CommentLikeRepository $commentLikeRepository
+      private CommentLikeRepositoryInterface $commentLikeRepository
     ) { }
 
     public function handle(Request $request): Response

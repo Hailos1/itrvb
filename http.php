@@ -1,7 +1,5 @@
 <?php
 
-require 'vendor/autoload.php';
-
 use http\Actions\Comments\CreateComment;
 use http\Actions\Likes\CreateCommentLike;
 use http\Actions\Likes\CreatePostLike;
@@ -9,17 +7,24 @@ use http\Actions\Likes\GetByUuidCommentLikes;
 use http\Actions\Likes\GetByUuidPostLikes;
 use http\Actions\Posts\CreatePost;
 use http\Actions\Posts\DeletePost;
+use http\Actions\Users\CreateUser;
 use http\Actions\Users\FindByUsername;
 use http\ErrorResponse;
 use http\Request;
+use Psr\Log\LoggerInterface;
 
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+$container = require __DIR__ . '/bootstrap.php';
+
+$logger = $container->get(LoggerInterface::class);
+
 try {
     $request = new Request($_GET, $_POST, $_SERVER);
 } catch (Exception $ex) {
+    $logger->warning($ex->getMessage());
     (new ErrorResponse($ex->getMessage()))->send();
     return;
 }
@@ -27,6 +32,7 @@ try {
 try {
     $path = $request->path();
 } catch (Exception $ex) {
+    $logger->warning($ex->getMessage());
     (new ErrorResponse($ex->getMessage()))->send();
     return;
 }
@@ -34,6 +40,7 @@ try {
 try {
     $method = $request->method();
 } catch (Exception $ex) {
+    $logger->warning($ex->getMessage());
     (new ErrorResponse($ex->getMessage()))->send();
     return;
 }
@@ -48,29 +55,32 @@ $routs = [
         '/posts/comment' => CreateComment::class,
         '/posts/' => CreatePost::class,
         '/likes/post/' => CreatePostLike::class,
-        '/likes/comment/' => CreateCommentLike::class
+        '/likes/comment/' => CreateCommentLike::class,
+        '/user/' => CreateUser::class
     ],
     'DELETE' => [
         '/posts' => DeletePost::class
     ]
 ];
 
-if (!array_key_exists($method, $routs) || !array_key_exists($path, $routs[$method])) {
-    (new ErrorResponse('Not found path'))->send();
-    return;
-}
-
-$actionClassName = $routs[$method][$path];
-
-$action = $container->get($actionClassName);
+$response = new ErrorResponse('An unknown error occurred.');
 
 try {
-    $response = $action->handle($request);
+    $path = $request->path();
+    $method = $request->method();
+
+    if (!array_key_exists($method, $routs) || !array_key_exists($path, $routs[$method])) {
+        $message = "Route not found: $method $path";
+        $logger->notice($message);
+        $response = new ErrorResponse($message);
+    } else {
+        $actionClassName = $routs[$method][$path];
+        $action = $container->get($actionClassName);
+        $response = $action->handle($request);
+    }
 } catch (Exception $ex) {
-    (new ErrorResponse($ex->getMessage()))->send();
-    return;
+    $logger->error($ex->getMessage(), ['exception' => $ex]);
+    $response = new ErrorResponse($ex->getMessage());
 }
 
 $response->send();
-
-// lesson 7 commit

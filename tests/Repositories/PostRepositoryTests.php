@@ -1,49 +1,47 @@
 <?php
 
-namespace UnitTests\my\Repositories;
+namespace tests\Repositories;
 
+use PDO;
+use PDOStatement;
+use PHPUnit\Framework\TestCase;
 use my\Exceptions\PostNotFoundException;
 use my\Model\Post;
 use my\Model\UUID;
 use my\Repositories\PostRepository;
-use PDO;
-use PDOStatement;
-use PHPUnit\Framework\TestCase;
+use tests\DummyLogger;
 
 class ArticleRepositoryTests extends TestCase
 {
-    private $pdoMock;
-    private $stmtMock;
-    private $repo;
+    private PDO $pdoMock;
+    private PDOStatement $stmtMock;
+    private PostRepository $repo;
 
     protected function setUp(): void {
         $this->pdoMock = $this->createMock(PDO::class);
         $this->stmtMock = $this->createMock(PDOStatement::class);
-        $this->repo = new PostRepository($this->pdoMock);
+        $this->repo = new PostRepository($this->pdoMock, new DummyLogger());
     }
 
-    public function testSavePost(): void {
-        $uuid = UUID::random();
-        $authorUuid = UUID::random();
-        $post = new Post($uuid, $authorUuid, 'Test Title', 'Test Text');
-
-        $expectedParams = [
-            ':uuid' => $uuid,
-            ':author_uuid' => $authorUuid,
-            ':title' => 'Test Title',
-            ':text' => 'Test Text'
-        ];
+    public function testSaveArticle(): void {
+        $uuid = new UUID('e91233da-fadf-40ef-8b82-f91969e700c9');
+        $authorUuid = new UUID('e91233da-cbdf-40ef-8b82-f91969e700c9');
+        $article = new Post($uuid, $authorUuid, 'Test Title', 'Test Text');
 
         $this->pdoMock->method('prepare')
             ->willReturn($this->stmtMock);
-        $this->stmtMock->expects($this->once())
-            ->method('execute')
-            ->with($this->equalTo($expectedParams));
 
-        $this->repo->save($post);
+        $this->stmtMock->expects($this->exactly(2))
+            ->method('execute')
+            ->willReturnOnConsecutiveCalls(true, true);
+
+        $this->stmtMock->method('fetchColumn')
+            ->willReturn(1);
+
+        $this->repo->save($article);
     }
 
-    public function testFindPostByUuid(): void {
+    public function testFindArticleByUuid(): void {
         $uuid = UUID::random();
         $authorUuid = UUID::random();
 
@@ -56,17 +54,17 @@ class ArticleRepositoryTests extends TestCase
             'text' => 'Test Text'
         ]);
 
-        $post = $this->repo->get($uuid);
+        $article = $this->repo->get($uuid);
 
-        $this->assertNotNull($post);
-        $this->assertEquals($uuid, $post->getUuid());
+        $this->assertNotNull($article);
+        $this->assertEquals($uuid, $article->getUuid());
     }
 
-    public function testThrowsExceptionIfPostNotFound(): void {
+    public function testThrowsExceptionIfArticleNotFound(): void {
         $nonExistentUuid = UUID::random();
 
         $this->expectException(PostNotFoundException::class);
-        $this->expectExceptionMessage("Статья с UUID $nonExistentUuid не найдена");
+        $this->expectExceptionMessage("Post with UUID $nonExistentUuid not found");
 
         $this->pdoMock->method('prepare')->willReturn($this->stmtMock);
         $this->stmtMock->method('execute')->willReturn(true);

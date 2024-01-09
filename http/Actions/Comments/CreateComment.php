@@ -2,6 +2,7 @@
 
 namespace http\Actions\Comments;
 
+use my\Repositories\CommentsRepositoryInterface;
 use http\Actions\ActionInterface;
 use http\ErrorResponse;
 use http\Request;
@@ -9,12 +10,11 @@ use http\Response;
 use http\SuccessfullResponse;
 use my\Model\Comment;
 use my\Model\UUID;
-use my\Repositories\CommentRepository;
 
 class CreateComment implements ActionInterface
 {
     public function __construct(
-        private CommentRepository $commentRepository
+        private CommentsRepositoryInterface $commentRepository
     ) { }
     public function handle(Request $request): Response
     {

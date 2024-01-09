@@ -9,11 +9,12 @@ use http\Request;
 use http\Response;
 use my\Repositories\UserRepository;
 use my\Exceptions\HttpException;
+use my\Repositories\UserRepositoryInterface;
 
 class FindByUsername implements ActionInterface
 {
     public function __construct(
-        private UserRepository $userRepository
+        private UserRepositoryInterface $userRepository
     ) {}
 
     public function handle(Request $request): Response

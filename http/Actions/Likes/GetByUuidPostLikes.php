@@ -11,12 +11,12 @@ use my\Exceptions\HttpException;
 use my\Exceptions\PostLikeNotFoundException;
 use my\Model\PostLike;
 use my\Model\UUID;
-use my\Repositories\PostLikeRepository;
+use my\Repositories\PostLikeRepositoryInterface;
 
 class GetByUuidPostLikes implements ActionInterface
 {
     public function __construct(
-        private PostLikeRepository $postLikeRepository
+        private PostLikeRepositoryInterface $postLikeRepository
     )
     {
 

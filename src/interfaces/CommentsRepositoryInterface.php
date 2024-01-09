@@ -1,5 +1,7 @@
 <?php
 
+namespace my\Repositories;
+
 use my\Model\Comment;
 use my\Model\UUID;
 

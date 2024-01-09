@@ -9,12 +9,12 @@ use http\Response;
 use http\SuccessfullResponse;
 use my\Model\PostLike;
 use my\Model\UUID;
-use my\Repositories\PostLikeRepository;
+use my\Repositories\PostLikeRepositoryInterface;
 
 class CreatePostLike implements ActionInterface
 {
     public function __construct(
-        private PostLikeRepository $postLikeRepository
+        private PostLikeRepositoryInterface $postLikeRepository
     )
     {
 
